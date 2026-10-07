@@ -108,6 +108,8 @@ textarea::placeholder { color: #A0AEC0; }
 .end h3 { margin: 0 0 4px; font-size: 18px; color: var(--blue-dark); font-weight: 600; }
 .end p { margin: 0 0 18px; color: var(--muted); font-size: 14.5px; }
 .end .row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.sent { display: none; margin: 16px auto 0; max-width: 520px; padding: 12px 16px; border-radius: 10px; background: #E8F5EE; color: #1B6B3A; font-size: 14.5px; font-weight: 500; }
+.sent.show { display: block; }
 .saved { margin-top: 14px; font-size: 13px; color: var(--muted); min-height: 18px; }
 footer { text-align: center; color: var(--muted); font-size: 13px; padding: 28px 0 0; }
 
@@ -152,8 +154,9 @@ footer { text-align: center; color: var(--muted); font-size: 13px; padding: 28px
     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOYAAADmCAMAAAD2tAmJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGkUExURSZlriZlryZlriZkriZlriZlrSZlriVlriZmryZmriZlriZlriZlrSZlrixqslCMyCdmr0qHxXu143ex4USCwWai14K86Hy35Dt4u12Z0H655jZ0uH645T17vClnr4ir04Wo0XifzMfX6v///6C83GOQxbLJ4k+CvZ662+3y+K7F4SZkriZlryZlrkR6uXyizlyLwmqVxzRvs7vP5pKy10F4uMnZ69bi8PH1+uTs9TdxtGaTxr/R59Pg7/X4+8LU6I+w1S1qsUh9u2KQxOfu9nefzG2Yyfz9/uDp9DpztjBsstDd7UR7ud3n8szb7MXW6Yyt1FmJwWCOxLTK4z52t3Scy6rD36O+3SZlrpa02G2XyEB3uIKm0LrO5VWHwMva7O/z+dzm8t/o8zZxtCZlrazE4LjM5Pj6/HCZyvr7/XmgzVKEvu7z+SZmrtrl8Y6v1d7n86jB3kt/vPT3+3uhzpm32YOn0ePr9CZlruvx96fA3kV7uShmrydlrp252nGayiVlriZlryZlrSZkrSZlriZlriZmryZlryZlriZlriZlrSZlrkdt6WcAAACMdFJOU//+/v79/fz8+/v7+vr5///////////////////////////////////////5+Pj////////////////////////////////////////////////////////3///////////////3///////////2//////////////b/////9f//9fT09PPy8fHx8PDv8uAUMQAAAAlwSFlzAAAOwwAADsMBx2+oZAAAB6lJREFUeF7tmvd/20QUwI+9N4TtGE4gEEuWZVtqmuESN0lDZ2hKoZSdMEqB0gJt2Xv803zeLZ1OlkKplcTP7/tDc3p3Gl/f6ZbKGEEQBEGMgmvcAE5IExPXugGckCYmSBMTpImJCdG8zg3ghDQxMSGa17sBnJAmJkgTE6SJCdLExIRo3uAGcEKamJgQzRvdAE5IExOkiQnSxARpYoI0MTEhmje5AZxMiObNbgAnpImJW9wATiZE81Y3gBPSxARpYoI0MUGamJgQzdvcAE5IExOkiQnSxARpYuJ2N4AT0sQEaWLiDjeA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" alt="Impact Plus">
     <div class="brand"><b>IMPACT PLUS</b><span><span class="prog-lbl">Programme BENIPOULE · </span><span id="progtxt" style="display:inline">0 sur 21 réponses obligatoires</span></span></div>
     <div class="tools">
+      <button class="btn solid" type="button" data-act="send" title="Envoyer la fiche à IMPACT PLUS"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg><span class="lbl">Envoyer</span></button>
       <button class="btn" type="button" data-act="word" title="Exporter (Word)"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg><span class="lbl">Word</span></button>
-      <button class="btn solid" type="button" data-act="pdf" title="Télécharger le PDF"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="lbl">Télécharger PDF</span></button>
+      <button class="btn" type="button" data-act="pdf" title="Télécharger le PDF"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span class="lbl">Télécharger PDF</span></button>
     </div>
   </div>
   <div class="progress"><i id="progbar"></i></div>
@@ -523,12 +526,14 @@ footer { text-align: center; color: var(--muted); font-size: 13px; padding: 28px
 
   <div class="end">
     <h3 id="endtitle">Merci pour vos réponses</h3>
-    <p>Téléchargez la fiche complétée en PDF pour la transmettre à IMPACT PLUS.</p>
+    <p>Cliquez sur « Envoyer la fiche » : vos réponses sont transmises directement à IMPACT PLUS. Vous pouvez aussi en garder une copie en PDF ou Word.</p>
     <div class="row">
-      <button class="btn solid" type="button" data-act="pdf"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>Télécharger le PDF</button>
+      <button class="btn solid" type="button" data-act="send"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg>Envoyer la fiche</button>
+      <button class="btn" type="button" data-act="pdf"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>Télécharger le PDF</button>
       <button class="btn" type="button" data-act="word"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>Exporter (Word)</button>
     </div>
     <div class="alert" id="alert" role="alert"></div>
+    <div class="sent" id="sent" role="status"></div>
     <div class="saved" id="saved"></div>
   </div>
 
@@ -939,6 +944,9 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
 (function () {
   var KEY = 'impactplus-benipoule-fiche';
   var FILE = 'Fiche_collecte_BENIPOULE_Impact_Plus';
+  /* URL de l'application Web Google Apps Script qui envoie la fiche par mail à IMPACT PLUS */
+  var SEND_URL = 'https://script.google.com/macros/s/AKfycbw58ObSZvy0__eh_wVu5vJejG82YtrbTZxg3_0XjJF8UeZq2s4_nGNJEW-hfHiJBQlbCw/exec';
+  var SENT_KEY = KEY + '-envoi';
   var areas = [].slice.call(document.querySelectorAll('textarea'));
   var reqAreas = areas.filter(function (t) { return t.required; });
   var NREQ = reqAreas.length;
@@ -999,7 +1007,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
     updateAlert();
     var miss = missingList();
     if (miss.length) {
-      toast('Merci de répondre ' + (miss.length > 1 ? 'aux ' + miss.length + ' questions obligatoires' : 'à la question obligatoire') + ' avant de télécharger.', true);
+      toast('Merci de répondre ' + (miss.length > 1 ? 'aux ' + miss.length + ' questions obligatoires' : 'à la question obligatoire') + ' avant de continuer.', true);
       focusQ(miss[0]);
       return false;
     }
@@ -1245,7 +1253,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
 
   /* ---------- Word ---------- */
   function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
-  function exportWord() {
+  function buildWordHtml() {
     var b = '<h1 style="color:#2665AE;font-size:17pt;margin:0">FICHE DE COLLECTE DE DONNÉES PRÉLIMINAIRES</h1>' +
             '<p style="font-size:12pt;color:#1D5291"><b>Cadrage des besoins d\'accompagnement – Programme BENIPOULE</b></p>';
     b += document.querySelector('.intro').innerHTML;
@@ -1258,6 +1266,10 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
       });
     });
     var html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="utf-8"><style>body{font-family:Calibri,Arial,sans-serif;font-size:11pt}</style></head><body>' + b + '</body></html>';
+    return html;
+  }
+  function exportWord() {
+    var html = buildWordHtml();
     var a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob(['﻿', html], { type: 'application/msword' }));
     a.download = FILE + '.doc';
@@ -1265,11 +1277,56 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
     toast('Le fichier Word a été téléchargé.');
   }
 
+  /* ---------- Envoi par mail à IMPACT PLUS ---------- */
+  function fingerprint() {
+    var t = areas.map(function (a) { return a.value.trim(); }).join('\u0001'), h = 0;
+    for (var i = 0; i < t.length; i++) { h = (h * 31 + t.charCodeAt(i)) | 0; }
+    return String(h);
+  }
+  function alreadySent() { try { return localStorage.getItem(SENT_KEY) === fingerprint(); } catch (e) { return false; } }
+  function showSent() {
+    var el = $('sent');
+    el.textContent = 'Votre fiche a bien été envoyée à IMPACT PLUS. Merci !';
+    el.classList.add('show');
+  }
+  function sendFiche(btn, silent) {
+    if (!SEND_URL || SEND_URL.indexOf('script.google.com') === -1) {
+      if (!silent) toast('L’envoi n’est pas encore configuré. Téléchargez la fiche en PDF ou Word.', true);
+      return Promise.resolve(false);
+    }
+    if (alreadySent()) {
+      if (!silent) { showSent(); toast('Cette fiche a déjà été envoyée à IMPACT PLUS.'); }
+      return Promise.resolve(true);
+    }
+    var payload = { filename: FILE, word: buildWordHtml(), pdf: '' };
+    try { if (window.jspdf) payload.pdf = buildPdf().output('datauristring').split(',')[1]; } catch (e) {}
+    if (btn) btn.disabled = true;
+    if (!silent) toast('Envoi de la fiche en cours…');
+    return fetch(SEND_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    }).then(function () {
+      try { localStorage.setItem(SENT_KEY, fingerprint()); } catch (e) {}
+      showSent();
+      if (!silent) toast('Votre fiche a bien été envoyée à IMPACT PLUS.');
+      return true;
+    }).catch(function () {
+      if (!silent) toast('L’envoi a échoué. Vérifiez votre connexion internet puis réessayez.', true);
+      return false;
+    }).then(function (ok) { if (btn) btn.disabled = false; return ok; });
+  }
+
   document.querySelectorAll('[data-act]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       refresh();
       if (!validate()) return;
-      if (btn.getAttribute('data-act') === 'pdf') downloadPdf(btn); else exportWord();
+      var act = btn.getAttribute('data-act');
+      if (act === 'send') { sendFiche(btn, false); return; }
+      if (act === 'pdf') downloadPdf(btn); else exportWord();
+      /* Même si la personne télécharge seulement, la fiche est aussi envoyée à IMPACT PLUS */
+      sendFiche(null, true);
     });
   });
 })();
