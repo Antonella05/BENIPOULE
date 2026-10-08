@@ -5,7 +5,7 @@ function doPost(e) {
   var data = JSON.parse(e.postData.contents);
   var now = new Date();
   var date = Utilities.formatDate(now, 'Africa/Porto-Novo', 'dd/MM/yyyy à HH:mm');
-  var nom = 'Fiche_collecte_BENIPOULE_' + Utilities.formatDate(now, 'Africa/Porto-Novo', 'yyyy-MM-dd_HH-mm');
+  var nom = 'Fiche_collecte_BeniPoule_' + Utilities.formatDate(now, 'Africa/Porto-Novo', 'yyyy-MM-dd_HH-mm');
   var pieces = [];
   try {
     pieces.push(versDocx(data.word, nom));
@@ -25,8 +25,8 @@ function doPost(e) {
     : '<br><br>Aucun document joint par le répondant.';
   MailApp.sendEmail({
     to: DESTINATAIRE,
-    subject: 'Nouvelle fiche BENIPOULE reçue – ' + date,
-    htmlBody: 'Bonjour,<br><br>Une nouvelle fiche de collecte BENIPOULE a été remplie le ' + date + '.<br>La fiche est en pièce jointe (Word et PDF).' + liste,
+    subject: 'Nouvelle fiche BeniPoule reçue – ' + date,
+    htmlBody: 'Bonjour,<br><br>Une nouvelle fiche de collecte BeniPoule a été remplie le ' + date + '.<br>La fiche est en pièce jointe (Word et PDF).' + liste,
     attachments: pieces
   });
   return ContentService.createTextOutput('ok');
