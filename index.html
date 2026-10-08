@@ -110,6 +110,14 @@ textarea::placeholder { color: #A0AEC0; }
 .end .row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 .sent { display: none; margin: 16px auto 0; max-width: 520px; padding: 12px 16px; border-radius: 10px; background: #E8F5EE; color: #1B6B3A; font-size: 14.5px; font-weight: 500; }
 .sent.show { display: block; }
+.files { margin-top: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.files .fhint { font-size: 13px; color: var(--muted); }
+.doclist { list-style: none; margin: 4px 0 0; padding: 0; width: 100%; display: grid; gap: 6px; }
+.doclist li { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--blue-50); font-size: 14px; }
+.doclist li span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.doclist li small { color: var(--muted); flex: none; }
+.doclist button { appearance: none; border: 0; background: none; color: #B42318; font: 500 13px "Outfit", sans-serif; cursor: pointer; padding: 2px 4px; flex: none; }
+@media print { .files { display: none; } }
 .saved { margin-top: 14px; font-size: 13px; color: var(--muted); min-height: 18px; }
 footer { text-align: center; color: var(--muted); font-size: 13px; padding: 28px 0 0; }
 
@@ -168,7 +176,7 @@ footer { text-align: center; color: var(--muted); font-size: 13px; padding: 28px
     <h1>FICHE DE COLLECTE DE DONNÉES PRÉLIMINAIRES</h1>
     <p>Cadrage des besoins d'accompagnement – Programme BENIPOULE</p>
     <div class="meta">
-      <span><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>26 questions</span>
+      <span><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>25 questions</span>
       <span><svg viewBox="0 0 24 24"><path d="M3 5h18M3 12h18M3 19h18"/></svg>6 sections + documentation</span>
       <span><svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>Brouillon enregistré automatiquement</span>
     </div>
@@ -418,11 +426,11 @@ footer { text-align: center; color: var(--muted); font-size: 13px; padding: 28px
             </div>
           </div>
         </div>
-        <div class="q required" data-q="19" data-text="Quel rôle souhaitez-vous voir jouer par la SAE dans la préparation des entreprises au financement et dans leurs interactions avec les banques/IMF ?">
+        <div class="q required" data-q="19" data-text="Au-delà de la préparation des entreprises (diagnostic, plan d’affaires, modélisation financière, éducation financière, etc.), est-il attendu de la SAE qu’elle accompagne également les entreprises dans leurs démarches auprès des banques/IMF ? Si oui, jusqu’à quelle étape ?">
           <div class="qrow">
             <span class="qnum" aria-hidden="true"><span class="n">19</span><svg class="chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
             <div class="qbody">
-              <label class="qtext" for="q19"><span class="sr">19. </span>Quel rôle souhaitez-vous voir jouer par la SAE dans la préparation des entreprises au financement et dans leurs interactions avec les banques/IMF ? <span class="req" aria-hidden="true">*</span></label>
+              <label class="qtext" for="q19"><span class="sr">19. </span>Au-delà de la préparation des entreprises (diagnostic, plan d’affaires, modélisation financière, éducation financière, etc.), est-il attendu de la SAE qu’elle accompagne également les entreprises dans leurs démarches auprès des banques/IMF ? Si oui, jusqu’à quelle étape ? <span class="req" aria-hidden="true">*</span></label>
               
               <span class="anslabel">Réponse :</span>
               <textarea id="q19" name="q19" rows="3" placeholder="Votre réponse…" required aria-required="true" aria-invalid="false"></textarea>
@@ -456,7 +464,7 @@ footer { text-align: center; color: var(--muted); font-size: 13px; padding: 28px
               <div class="printans" aria-hidden="true"></div>
             </div>
           </div>
-        </div></section><section class="sec" id="s6" data-title="6. INFORMATIONS COMPLÉMENTAIRES"><header class="shead"><span class="snum">6</span><h2><span class="sr">6. </span>INFORMATIONS COMPLÉMENTAIRES</h2><span class="scount" data-count="s6">0/4</span></header>
+        </div></section><section class="sec" id="s6" data-title="6. INFORMATIONS COMPLÉMENTAIRES"><header class="shead"><span class="snum">6</span><h2><span class="sr">6. </span>INFORMATIONS COMPLÉMENTAIRES</h2><span class="scount" data-count="s6">0/3</span></header>
         <div class="q" data-q="22" data-text="Au-delà des besoins déjà communiqués, existe-t-il d&#x27;autres prestations ou composantes que BENIPOULE souhaiterait intégrer à l&#x27;intervention de la SAE ?">
           <div class="qrow">
             <span class="qnum" aria-hidden="true"><span class="n">22</span><svg class="chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
@@ -470,11 +478,11 @@ footer { text-align: center; color: var(--muted); font-size: 13px; padding: 28px
             </div>
           </div>
         </div>
-        <div class="q" data-q="23" data-text="Certaines expertises particulières doivent-elles impérativement être mobilisées dans l&#x27;équipe d&#x27;intervention ?">
+        <div class="q" data-q="23" data-text="Existe-t-il des contraintes, orientations ou modalités de mise en œuvre particulières dont IMPACT PLUS devrait tenir compte dès la conception de sa proposition ?">
           <div class="qrow">
             <span class="qnum" aria-hidden="true"><span class="n">23</span><svg class="chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
             <div class="qbody">
-              <label class="qtext" for="q23"><span class="sr">23. </span>Certaines expertises particulières doivent-elles impérativement être mobilisées dans l&#x27;équipe d&#x27;intervention ? </label>
+              <label class="qtext" for="q23"><span class="sr">23. </span>Existe-t-il des contraintes, orientations ou modalités de mise en œuvre particulières dont IMPACT PLUS devrait tenir compte dès la conception de sa proposition ? </label>
               
               <span class="anslabel">Réponse :</span>
               <textarea id="q23" name="q23" rows="3" placeholder="Votre réponse…" aria-invalid="false"></textarea>
@@ -483,11 +491,11 @@ footer { text-align: center; color: var(--muted); font-size: 13px; padding: 28px
             </div>
           </div>
         </div>
-        <div class="q" data-q="24" data-text="Existe-t-il des contraintes, orientations ou modalités de mise en œuvre particulières dont IMPACT PLUS devrait tenir compte dès la conception de sa proposition ?">
+        <div class="q" data-q="24" data-text="Une enveloppe ou un cadre budgétaire indicatif est-il déjà défini pour cette intervention ?">
           <div class="qrow">
             <span class="qnum" aria-hidden="true"><span class="n">24</span><svg class="chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
             <div class="qbody">
-              <label class="qtext" for="q24"><span class="sr">24. </span>Existe-t-il des contraintes, orientations ou modalités de mise en œuvre particulières dont IMPACT PLUS devrait tenir compte dès la conception de sa proposition ? </label>
+              <label class="qtext" for="q24"><span class="sr">24. </span>Une enveloppe ou un cadre budgétaire indicatif est-il déjà défini pour cette intervention ? </label>
               
               <span class="anslabel">Réponse :</span>
               <textarea id="q24" name="q24" rows="3" placeholder="Votre réponse…" aria-invalid="false"></textarea>
@@ -495,29 +503,22 @@ footer { text-align: center; color: var(--muted); font-size: 13px; padding: 28px
               <div class="printans" aria-hidden="true"></div>
             </div>
           </div>
-        </div>
-        <div class="q" data-q="25" data-text="Une enveloppe ou un cadre budgétaire indicatif est-il déjà défini pour cette intervention ?">
+        </div></section><section class="sec" id="s7" data-title="Documentation disponible"><header class="shead"><span class="snum"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></span><h2>Documentation disponible</h2><span class="scount" data-count="s7">0/1</span></header>
+        <div class="q required" data-q="25" data-text="Quels documents existants pourraient être mis à disposition d&#x27;IMPACT PLUS pour approfondir la compréhension du dispositif ?" data-hint="(Document de projet BENIPOULE, cadre de résultats, études de la filière, données sur les bénéficiaires, mécanismes de financement, outils des banques/IMF, curricula ou supports existants, etc.)">
           <div class="qrow">
             <span class="qnum" aria-hidden="true"><span class="n">25</span><svg class="chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
             <div class="qbody">
-              <label class="qtext" for="q25"><span class="sr">25. </span>Une enveloppe ou un cadre budgétaire indicatif est-il déjà défini pour cette intervention ? </label>
-              
+              <label class="qtext" for="q25"><span class="sr">25. </span>Quels documents existants pourraient être mis à disposition d&#x27;IMPACT PLUS pour approfondir la compréhension du dispositif ? <span class="req" aria-hidden="true">*</span></label>
+              <p class="hint" id="h25">(Document de projet BENIPOULE, cadre de résultats, études de la filière, données sur les bénéficiaires, mécanismes de financement, outils des banques/IMF, curricula ou supports existants, etc.)</p>
               <span class="anslabel">Réponse :</span>
-              <textarea id="q25" name="q25" rows="3" placeholder="Votre réponse…" aria-invalid="false"></textarea>
+              <textarea id="q25" name="q25" rows="3" aria-describedby="h25" placeholder="Votre réponse…" required aria-required="true" aria-invalid="false"></textarea>
               <p class="err" id="e25" role="alert"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>Réponse obligatoire</p>
-              <div class="printans" aria-hidden="true"></div>
-            </div>
-          </div>
-        </div></section><section class="sec" id="s7" data-title="Documentation disponible"><header class="shead"><span class="snum"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></span><h2>Documentation disponible</h2><span class="scount" data-count="s7">0/1</span></header>
-        <div class="q required" data-q="26" data-text="Quels documents existants pourraient être mis à disposition d&#x27;IMPACT PLUS pour approfondir la compréhension du dispositif ?" data-hint="(Document de projet BENIPOULE, cadre de résultats, études de la filière, données sur les bénéficiaires, mécanismes de financement, outils des banques/IMF, curricula ou supports existants, etc.)">
-          <div class="qrow">
-            <span class="qnum" aria-hidden="true"><span class="n">26</span><svg class="chk" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-            <div class="qbody">
-              <label class="qtext" for="q26"><span class="sr">26. </span>Quels documents existants pourraient être mis à disposition d&#x27;IMPACT PLUS pour approfondir la compréhension du dispositif ? <span class="req" aria-hidden="true">*</span></label>
-              <p class="hint" id="h26">(Document de projet BENIPOULE, cadre de résultats, études de la filière, données sur les bénéficiaires, mécanismes de financement, outils des banques/IMF, curricula ou supports existants, etc.)</p>
-              <span class="anslabel">Réponse :</span>
-              <textarea id="q26" name="q26" rows="3" aria-describedby="h26" placeholder="Votre réponse…" required aria-required="true" aria-invalid="false"></textarea>
-              <p class="err" id="e26" role="alert"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>Réponse obligatoire</p>
+              <div class="files">
+                <label class="btn" for="docs"><svg viewBox="0 0 24 24"><path d="M21.4 11.1l-9.2 9.2a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8l8.5-8.5"/></svg>Joindre des documents</label>
+                <input type="file" id="docs" multiple class="sr" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.csv,.txt,.odt,.ods,.jpg,.jpeg,.png,.zip">
+                <span class="fhint">Facultatif · PDF, Word, Excel, PowerPoint, images ou ZIP · 18 Mo au total maximum</span>
+                <ul class="doclist" id="doclist"></ul>
+              </div>
               <div class="printans" aria-hidden="true"></div>
             </div>
           </div>
@@ -942,7 +943,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 (function () {
-  var KEY = 'impactplus-benipoule-fiche';
+  var KEY = 'impactplus-benipoule-fiche-v2';
   var FILE = 'Fiche_collecte_BENIPOULE_Impact_Plus';
   /* URL de l'application Web Google Apps Script qui envoie la fiche par mail à IMPACT PLUS */
   var SEND_URL = 'https://script.google.com/macros/s/AKfycbzFc5ytvFcytNhY43Y6NqwxpI-sSRl673Dts4nWuXgEYuEJDbwOejMywQiyj2_czUerLA/exec';
@@ -1265,6 +1266,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
         b += '<p>Réponse :</p><p style="border:1px solid #CBD5E1;padding:6pt">' + (q.ans ? esc(q.ans).replace(/\n/g, '<br>') : '&nbsp;') + '</p>';
       });
     });
+    if (docs.length) b += '<p style="margin-top:14pt"><b>Documents joints :</b> ' + esc(docs.map(function (f) { return f.name; }).join(', ')) + '</p>';
     var html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="utf-8"><style>body{font-family:Calibri,Arial,sans-serif;font-size:11pt}</style></head><body>' + b + '</body></html>';
     return html;
   }
@@ -1277,9 +1279,46 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
     toast('Le fichier Word a été téléchargé.');
   }
 
+  /* ---------- Documents joints (question 25) ---------- */
+  var MAX_DOCS = 18 * 1024 * 1024;
+  var docs = [];
+  function taille(n) { return n < 1048576 ? Math.max(1, Math.round(n / 1024)) + ' Ko' : (n / 1048576).toFixed(1).replace('.', ',') + ' Mo'; }
+  function totalDocs() { return docs.reduce(function (t, f) { return t + f.size; }, 0); }
+  function renderDocs() {
+    var ul = $('doclist');
+    ul.innerHTML = '';
+    docs.forEach(function (f, i) {
+      var li = document.createElement('li');
+      var nm = document.createElement('span'); nm.textContent = f.name;
+      var sz = document.createElement('small'); sz.textContent = taille(f.size);
+      var rm = document.createElement('button'); rm.type = 'button'; rm.textContent = 'Retirer';
+      rm.addEventListener('click', function () { docs.splice(i, 1); renderDocs(); });
+      li.appendChild(nm); li.appendChild(sz); li.appendChild(rm); ul.appendChild(li);
+    });
+  }
+  $('docs').addEventListener('change', function () {
+    var refuses = 0;
+    [].forEach.call(this.files, function (f) {
+      if (docs.some(function (d) { return d.name === f.name && d.size === f.size; })) return;
+      if (totalDocs() + f.size > MAX_DOCS) { refuses++; return; }
+      docs.push(f);
+    });
+    this.value = '';
+    renderDocs();
+    if (refuses) toast(refuses + (refuses > 1 ? ' fichiers n’ont' : ' fichier n’a') + ' pas été ajouté' + (refuses > 1 ? 's' : '') + ' : la limite de 18 Mo au total est dépassée.', true);
+  });
+  function lireDoc(f) {
+    return new Promise(function (ok, ko) {
+      var r = new FileReader();
+      r.onload = function () { ok({ name: f.name, type: f.type || 'application/octet-stream', data: String(r.result).split(',')[1] || '' }); };
+      r.onerror = ko;
+      r.readAsDataURL(f);
+    });
+  }
+
   /* ---------- Envoi par mail à IMPACT PLUS ---------- */
   function fingerprint() {
-    var t = areas.map(function (a) { return a.value.trim(); }).join('\u0001'), h = 0;
+    var t = areas.map(function (a) { return a.value.trim(); }).concat(docs.map(function (f) { return f.name + ':' + f.size; })).join('\u0001'), h = 0;
     for (var i = 0; i < t.length; i++) { h = (h * 31 + t.charCodeAt(i)) | 0; }
     return String(h);
   }
@@ -1301,12 +1340,15 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
     var payload = { filename: FILE, word: buildWordHtml(), pdf: '' };
     try { if (window.jspdf) payload.pdf = buildPdf().output('datauristring').split(',')[1]; } catch (e) {}
     if (btn) btn.disabled = true;
-    if (!silent) toast('Envoi de la fiche en cours…');
-    return fetch(SEND_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload)
+    if (!silent) toast(docs.length ? 'Envoi de la fiche et des documents en cours… Merci de patienter.' : 'Envoi de la fiche en cours…');
+    return Promise.all(docs.map(lireDoc)).then(function (files) {
+      payload.files = files;
+      return fetch(SEND_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
     }).then(function () {
       try { localStorage.setItem(SENT_KEY, fingerprint()); } catch (e) {}
       showSent();
